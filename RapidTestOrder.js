@@ -3,9 +3,17 @@ class RapidTestOrder {
     this.OrderState = {
       WELCOMING: () => {
         let aReturn = [];
-        this.stateCur = this.OrderState.RESERVING;
+        this.stateCur = this.OrderState.TYPE;
         aReturn.push("Welcome to Fridays Cafe and Eatery.");
-        aReturn.push("What type of drink would you like? We have a bit of everything here!");
+        aReturn.push("What type of drink would you like?");
+        aReturn.push("We have cold and hot drinks?")
+        return aReturn;
+      },
+      TYPE: (sInput) =>{
+        let aReturn = [];
+        this.stateCur = this.OrderState.RESERVING;
+        aReturn.push("Hot? There is Black Coffee or French Vanilla")
+        aReturn.push("We have hot and cold drinks.")
         return aReturn;
       },
       RESERVING: (sInput) => {
