@@ -13,7 +13,6 @@ class RapidTestOrder {
         let aReturn = [];
         this.stateCur = this.OrderState.RESERVING;
         aReturn.push("Hot? There is Black Coffee or French Vanilla")
-        aReturn.push("We have hot and cold drinks.")
         return aReturn;
       },
       RESERVING: (sInput) => {
