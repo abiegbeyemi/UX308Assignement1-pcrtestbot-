@@ -11,19 +11,18 @@ class RapidTestOrder {
 
             FOOD_TYPE: (sInput) => {
                 let aReturn = [];
-                this.isDone = [];
+                this.stateCur = this.OrderState.BREAD_TYPE;
                 if (sInput.toLowerCase().startsWith('b')) {
                     aReturn.push("Nice choice! What kind of bagel would you like?");
-                    aReturn.push("We have plain, seasme, jalapeno, and everything.")
-                    this.stateCur = this.OrderState.BAGEL_TYPE;
+                    aReturn.push("We have plain, sesame, jalepeno, and everything.")
                 } else {
                     aReturn.push("Nice choice! What kind of Panini would you like?");
-
+                    aReturn.push("We have smoked salmon, ham, piri chicken, and veggie.")
                 }
                 return aReturn;
             },
 
-            BAGEL_TYPE: (sInput) => {
+            BREAD_TYPE: (sInput) => {
                 let aReturn = [];
                 aReturn.push("Would you like a drink with that?")
                 aReturn.push("We have small, medium, and large!")
@@ -34,11 +33,11 @@ class RapidTestOrder {
 
             DRINK_TYPE: (sInput) => {
                 let aReturn = [];
+                this.isDone = true
                 aReturn.push("Thank you for your order! It will be ready in 20 minutes!")
                 return aReturn;
             }
         }
-
 
         this.stateCur = this.OrderState.WELCOMING;
         this.isDone = false;
