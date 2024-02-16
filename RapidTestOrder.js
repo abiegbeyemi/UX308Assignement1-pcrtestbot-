@@ -3,18 +3,24 @@ class RapidTestOrder {
     this.OrderState = {
       WELCOMING: () => {
         let aReturn = [];
-        this.stateCur = this.OrderState.TYPE;
+        this.stateCur = this.OrderState.FOOD_TYPE;
         aReturn.push("Welcome to Fridays Cafe and Eatery.");
-        aReturn.push("What type of drink would you like?");
-        aReturn.push("We have cold and hot drinks?")
+        aReturn.push("What can I get for you today? We have Breakfast bagels or Panini wraps!");
         return aReturn;
       },
-      TYPE: (sInput) =>{
+
+      FOOD_TYPE: (sInput) =>{
         let aReturn = [];
-        this.stateCur = this.OrderState.RESERVING;
-        aReturn.push("Hot? There is Black Coffee or French Vanilla")
+        this.isDone = [];
+        if (sInput.toLowerCase().startsWith('b')) {
+            aReturn.push("Nice choice! What kind of bagel would you like?");
+        } else {
+            aReturn.push("Cold? We have Iced Coffee or Mango Chai Smoothie.");
+            aReturn.push("Maybe next time")
+        }
         return aReturn;
-      },
+        }, 
+
       RESERVING: (sInput) => {
         let aReturn = [];
         this.isDone = true;
